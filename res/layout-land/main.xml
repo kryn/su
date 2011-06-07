@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" android:background="@color/background" android:padding="30dip" android:orientation="horizontal">
+<LinearLayout android:id="@+id/linearLayout1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_gravity="center">
+    <TextView android:id="@+id/textView1" android:text="@string/hello" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_gravity="center" android:layout_marginBottom="25dip" android:layout_weight="1" android:textSize="24.5sp"></TextView>
+    <TableLayout android:layout_height="wrap_content" android:id="@+id/tableLayout1" android:layout_width="wrap_content" android:layout_gravity="center" android:stretchColumns="*">
+        <TableRow android:id="@+id/tableRow1" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        	<Button android:layout_height="wrap_content" android:id="@+id/continue_button" android:layout_width="fill_parent" android:layout_weight="1" android:text="@string/continue_label"></Button>
+        	<Button android:layout_height="wrap_content" android:id="@+id/new_button" android:layout_width="fill_parent" android:layout_weight="1" android:text="@string/new_game_label"></Button>
+		</TableRow>
+        <TableRow android:id="@+id/tableRow2" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <Button android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1" android:id="@+id/about_button" android:text="@string/about_label"></Button>
+            <Button android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1" android:id="@+id/exit_button" android:text="@string/exit_label"></Button>
+        </TableRow>
+    </TableLayout>
+</LinearLayout>
+</LinearLayout>
