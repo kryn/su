@@ -17,7 +17,7 @@ public class Game extends Activity {
 	public static final int DIFFICULTY_EASY = 0;
 	public static final int DIFFICULTY_MEDIUM = 1;
 	public static final int DIFFICULTY_HARD = 2;
-	
+	// check to push now again
 	private int puzzle[];
 	
 	private PuzzleView puzzleView;
