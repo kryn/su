@@ -2,13 +2,9 @@ package com.kryn.Sudoku;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Path;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.View;
 import android.widget.Toast;
 
 public class Game extends Activity {
@@ -146,7 +142,7 @@ public class Game extends Activity {
 		}
 		setTile(selX, selY, value);
 		calculateUsedTiles();
-		return false;
+		return true;
 	}
 
 	private void setTile(int selX, int selY, int value) {

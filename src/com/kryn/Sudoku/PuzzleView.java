@@ -178,7 +178,7 @@ public class PuzzleView extends View {
 
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
-		if (event.getAction() != MotionEvent.ACTION_POINTER_DOWN)
+		if (event.getAction() != MotionEvent.ACTION_DOWN)
 			return super.onTouchEvent(event);
 		
 		select((int) (event.getX() / width),
