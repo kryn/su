@@ -13,9 +13,11 @@ public class Game extends Activity {
 	
 	public static final String KEY_DIFFICULTY =
 		"com.kryn.Sudoku.difficulty";
+	protected static final int DIFFICULTY_CONTINUE = -1;
 	public static final int DIFFICULTY_EASY = 0;
 	public static final int DIFFICULTY_MEDIUM = 1;
 	public static final int DIFFICULTY_HARD = 2;
+	private static final String PREF_PUZZLE = "puzzle";
 	private int puzzle[];
 	
 	private PuzzleView puzzleView;
@@ -49,6 +51,9 @@ public class Game extends Activity {
 		puzzleView = new PuzzleView(this);
 		setContentView(puzzleView);
 		puzzleView.requestFocus();
+		
+		// If the activity is restarted, do a continue next time
+		getIntent().putExtra(KEY_DIFFICULTY, DIFFICULTY_CONTINUE);
 	}
 
 	private void calculateUsedTiles() {
@@ -163,8 +168,10 @@ public class Game extends Activity {
 	
 	private int[] getPuzzle(int diff) {
 		String puz;
-		// TODO: continue last game
 		switch (diff) {
+		case DIFFICULTY_CONTINUE:
+			puz = getPreferences(MODE_PRIVATE).getString(PREF_PUZZLE, easyPuzzle);
+			break;
 		case DIFFICULTY_HARD:
 			puz = hardPuzzle;
 			break;
@@ -185,6 +192,18 @@ public class Game extends Activity {
 			puz[i] = string.charAt(i) - '0';
 		}
 		return puz;
+	}
+
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onPause()
+	 */
+	@Override
+	protected void onPause() {
+		super.onPause();
+		Log.d(TAG, "onPause");
+		
+		// Save the current puzzle
+		getPreferences(MODE_PRIVATE).edit().putString(PREF_PUZZLE, toPuzzleString(puzzle)).commit();
 	}
 
 }
